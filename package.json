@@ -1,0 +1,22 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "Command line app that accepts user input when prompted for information about app repo and then generates a high quality README.md",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salask24/readme-generator.git"
+  },
+  "keywords": [
+    "readme"
+  ],
+  "author": "salask24",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salask24/readme-generator/issues"
+  },
+  "homepage": "https://github.com/salask24/readme-generator#readme"
+}
