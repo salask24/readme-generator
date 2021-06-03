@@ -62,62 +62,79 @@ const questions = () => {
     ])
 }
 
-inquirer
-    .prompt(questions)
+questions()
     .then(answers => {
-        console.log(answers)
+        const pageMarkdown = generateMarkdown(answers);
 
-        generateMarkDown(answers);
-    })
-    .catch(error => {
-        if (error.isTtyError) {
+        // TODO: Create a function to write README file
+        fs.writeFile('./dist/README.md', pageMarkdown, err => {
+            if (err) throw err;
 
-        } else {
+            console.log('README complete! Check out README.MD to see the output!');
+        });
 
-        }
     });
 
-var readmeString = `# ${data.title}\n` +
-    `## Description:\n` +
-    `${license}\n` +
-    `${data.description}\n` +
-    `## Table of Contents: \n` +
-    `* [Installation](##Installation)\n` +
-    `* [Usage](##Usage)\n` +
-    `* [License](##License)\n` +
-    `* [Contributing](##Contributing)\n` +
-    `* [Tests](##Tests)\n` +
-    `* [Questions](##Questions)\n` +
-    `## Installation:\n` +
-    `${data.installation}\n` +
-    `## Usage:\n` +
-    `${data.usage}\n` +
-    `## License:\n` +
-    `This project utilizes the ${data.license} license\n` +
-    `## Contributing:\n` +
-    `${data.contributing}\n` +
-    `## Tests:\n` +
-    `${data.tests}\n` +
-    `## Questions:\n` +
-    `My GitHub Profile: [https://github.com/${data.github}](https://github.com/${data.github})\n` +
-    `For further questions contact me at ${data.email}`;
 
-createReadMe(readmeString);
+// inquirer
+//     .prompt(questions)
+//     .then(answers => {
+//         console.log(answers)
 
-const createReadMe = data => {
-    fs.writeFile('./generated/README.md', data, (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-    });
-}
+//         generateMarkDown(answers);
+//     })
+//     .catch(error => {
+//         if (error.isTtyError) {
+
+//         } else {
+
+//         }
+//     });
 
 
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
 
-// TODO: Create a function to initialize app
-function init() { }
+// var readmeString = `# ${data.title}\n` +
+//     `## Description:\n` +
+//     `${license}\n` +
+//     `${data.description}\n` +
+//     `## Table of Contents: \n` +
+//     `* [Installation](##Installation)\n` +
+//     `* [Usage](##Usage)\n` +
+//     `* [License](##License)\n` +
+//     `* [Contributing](##Contributing)\n` +
+//     `* [Tests](##Tests)\n` +
+//     `* [Questions](##Questions)\n` +
+//     `## Installation:\n` +
+//     `${data.installation}\n` +
+//     `## Usage:\n` +
+//     `${data.usage}\n` +
+//     `## License:\n` +
+//     `This project utilizes the ${data.license} license\n` +
+//     `## Contributing:\n` +
+//     `${data.contributing}\n` +
+//     `## Tests:\n` +
+//     `${data.tests}\n` +
+//     `## Questions:\n` +
+//     `My GitHub Profile: [https://github.com/${data.github}](https://github.com/${data.github})\n` +
+//     `For further questions contact me at ${data.email}`;
 
-// Function call to initialize app
-init();
+// createReadMe(readmeString);
+
+// const createReadMe = data => {
+//     fs.writeFile('./generated/README.md', data, (err) => {
+//         if (err) throw err;
+//         console.log('The file has been saved!');
+//     });
+// }
+
+
+
+// // TODO: Create a function to write README file
+// function writeToFile(fileName, data) { }
+
+// // TODO: Create a function to initialize app
+// function init() { }
+
+// // Function call to initialize app
+// init();
