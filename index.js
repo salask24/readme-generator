@@ -87,7 +87,7 @@ const questions = () => {
             type: 'list',
             name: 'license',
             message: 'Select the license for this project.',
-            choices: ['MIT License', 'GNU General Public License v3.0', 'Mozilla Public License 2.0', 'The Unlicense'],
+            choices: ['MIT License', 'Apache 2.0', 'GNU General Public License v3.0', 'None'],
             when: ({ confirmLicense }) => {
                 if (confirmLicense) {
                     return true;
@@ -202,6 +202,21 @@ const questions = () => {
     ])
 };
 
+
+//read me is being created
+//write file needs 3 standard have to have processes: 
+// 1. location and name of file
+// 2. data written on to the file
+// 3. err handling callback
+// fs = file system and it can read, write, create folders, etc.
+
+//.then promise file format 
+// wait for the questions to be answered .THEN it will continue to next steps 
+// only used for methods that have promise functionality 
+    //inquirer - prebuilt package of sw that allows me to ask user questions in the command line (CLI) - npm (node package manager)
+    //  chink of code I don't have to create
+    //fetch - javascript third party apis and backend apis
+    //ajax - jQuery third party apis and backend apis
 questions()
     .then(answers => {
         const pageMarkdown = generateMarkdown(answers);

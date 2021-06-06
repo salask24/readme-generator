@@ -2,23 +2,23 @@
 // If there is no license, return an empty string
 const renderLicenseBadge = licenseName => {
   if (!licenseName) {
-    return '';
+    return ``
   }
-  if (licenseName.includes('MIT')) {
+  else if (licenseName.includes('MIT')) {
     licenseName = 'MIT';
+    return `![license](https://img.shields.io/badge/license-MIT-green)`
   }
-  if (licenseName.includes('GNU')) {
-    licenseName = 'GNU_General_Public_v3.0';
+  else if (licenseName.includes('Apache 2.0')) {
+    licenseName = 'Apache 2.0';
+    return `![license](https://img.shields.io/badge/license-Apache%202.0-green)`
   }
-  if (licenseName.includes('Mozilla')) {
-    licenseName = 'Mozilla_Public_2.0';
+  else if (licenseName.includes('GNU General Public License v3.0')) {
+    licenseName = 'GNU General Public License v3.0';
+    return `![license](https://img.shields.io/badge/license-GNU%20General%20Public%20License%20v3.0-green)`
   }
-  if (licenseName.includes('Unlicense')) {
-    licenseName = 'The Unlicense';
+  else {
+    return ``
   }
-  return `
-![license](https://img.shields.io/badge/License-${licenseName}-blue)`
-
 }
 
 // TODO: Create a function that returns the license section of README
